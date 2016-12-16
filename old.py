@@ -66,9 +66,10 @@ def fig1():
 
     axs[0].plot(fig1al_nb_new,smooth1,linewidth=linewidth,color=linecolor,
                 label='QGSM')
-    axs[0].plot(fig1ah_nb,fig1ah_nf,marker='o',linestyle='',color='green',
-                markersize=markersize,label='nondiffractive')
-    axs[0].text(11,3.8,'a)')
+    axs[0].plot(fig1ah_nb,fig1ah_nf,marker='o',linestyle='',color='none',
+                markersize=markersize,label='nondiffractive',
+                mew=3)
+    axs[0].text(11,3.8,'(a)')
     axs[0].errorbar(fig1as_nb,fig1as_nf,fig1as_yerr,
                     marker='o',linestyle='',color=markcolor,
                     markersize=markersize,label='inelastic')
@@ -76,17 +77,23 @@ def fig1():
     axs[1].plot(fig1bl_nb_new,smooth2,linewidth=linewidth,color=linecolor,
                 label='QGSM')
     axs[1].plot([],[],linestyle='',label='Experimental:')
-    axs[1].plot(fig1bh_nb,fig1bh_nf,marker='o',linestyle='',color='green',
-                markersize=markersize,label='nondiffractive')
-    axs[1].text(11,3.8,'b)')
+    axs[1].plot(fig1bh_nb,fig1bh_nf,marker='o',linestyle='',color='none',
+                markersize=markersize,label='nondiffractive',
+                mew=3)
+    axs[1].text(11,3.8,'(b)')
+    axs[1].plot(fig1bs_nb,fig1bs_nf,
+                marker='o',linestyle='',color=markcolor,
+                markersize=markersize,label='inelastic')
     axs[1].errorbar(fig1bs_nb,fig1bs_nf,fig1bs_yerr,
                     marker='o',linestyle='',color=markcolor,
-                    markersize=markersize,label='inelastic')
-    fig.text(0.50,0.02,'$n_B$',ha='center',size=40)
-    fig.text(0.1,0.92,r'$\langle n_F \rangle$',ha='center',size=40)
-    plt.legend(loc='best',frameon=False)
+                    markersize=markersize)
+    fig.text(0.50,0.01,'$n_B$',ha='center',size=40)
+    fig.text(0.05,0.5,r'$\langle n_F \rangle$',va='center',size=40,
+             rotation=90)
+    #handles, labels = axs[1].get_legend_handles_labels()
+    leg = plt.legend(loc='best',frameon=False)
     #plt.show()
-    fig.savefig('fig1.pdf', bbox_inches='tight')
+    fig.savefig('fig1.eps')#, bbox_inches='tight')
 
 def fig4():
     fig4a_nf   = [2.9,2.9,2.8,2.7,2.59,2.42,2.53,2.4,2.7]
@@ -118,11 +125,11 @@ def fig4():
     fig.subplots_adjust(hspace=0)
     DPI = fig.get_dpi()
     fig.set_size_inches(1000/DPI,2000/DPI)
-    ylimits = [[2.2,3.2],[1.6,2.2],[0.6,1.8],[3,4.2],[1.6,2.4]]
-    labels = ['a)','b)','c)','d)','e)']
+    ylimits = [[2.0,3.2],[1.3,2.5],[0.6,1.8],[3.1,4.3],[1.5,2.7]]
+    labels = ['(a)','(b)','(c)','(d)','(e)']
     texts  = ['cylindrical','undeveloped\ncylinder','diffraction\ndiagrams','annihilation','planar']
-    fig.text(0.5,0.06,'$n_B$',ha='center',size=40)
-    fig.text(0.1,0.91,r'$\langle n_F \rangle$',ha='center',size=40)
+    fig.text(0.5,0.05,'$n_B$',ha='center',size=40)
+    fig.text(0.005,0.5,r'$\langle n_F \rangle$',va='center',size=40,rotation=90)
 
     for i,ax in enumerate(axs):
         ax.set_ylim(ylimits[i])
@@ -144,7 +151,7 @@ def fig4():
                 markersize='14', color='black')
     [ylabel.set_visible(True) for ylabel in axs[0].get_yticklabels()[2:-2:2]]
     axs[0].text(8.2,ylimits[0][1]-0.19,labels[0])
-    axs[0].text(7.4,ylimits[0][1]-0.31,texts[0])
+    axs[0].text(7.45,ylimits[0][1]-0.36,texts[0])
 
     #   b
     axs[1].errorbar(fig4_nb[1],fig4_nf[1],fig4_yerr[1],
@@ -152,7 +159,7 @@ def fig4():
                 markersize='14', color='black')
     [ylabel.set_visible(True) for ylabel in axs[1].get_yticklabels()[2:-2]]
     axs[1].text(7.7,ylimits[1][1]-0.25,labels[1])
-    axs[1].text(7.0,ylimits[1][1]-0.4,texts[1])
+    axs[1].text(7.0,ylimits[1][1]-0.55,texts[1])
 
 
     #  c 
@@ -178,10 +185,10 @@ def fig4():
                 markersize='14', color='black')
     [ylabel.set_visible(True) for ylabel in axs[4].get_yticklabels()[2:-1:2]]
     axs[4].text(8,ylimits[4][1]-0.25,labels[4])
-    axs[4].text(7.5,ylimits[4][1]-0.35,texts[4])
+    axs[4].text(7.5,ylimits[4][1]-0.38,texts[4])
 
     #plt.show()
-    fig.savefig('fig4.pdf', bbox_inches='tight')
+    fig.savefig('fig4.eps')#, bbox_inches='tight')
 
 fig1()
 fig4()
