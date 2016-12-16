@@ -94,6 +94,7 @@ def fig1():
     leg = plt.legend(loc='best',frameon=False)
     #plt.show()
     fig.savefig('fig1.eps')#, bbox_inches='tight')
+    fig.savefig('fig1.pdf')#, bbox_inches='tight')
 
 def fig4():
     fig4a_nf   = [2.9,2.9,2.8,2.7,2.59,2.42,2.53,2.4,2.7]
@@ -189,6 +190,7 @@ def fig4():
 
     #plt.show()
     fig.savefig('fig4.eps')#, bbox_inches='tight')
+    fig.savefig('fig4.pdf')#, bbox_inches='tight')
 
 fig1()
 fig4()
