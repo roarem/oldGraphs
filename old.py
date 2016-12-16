@@ -150,7 +150,7 @@ def fig4():
     axs[0].errorbar(fig4_nb[0],fig4_nf[0],fig4_yerr[0],
                 marker='o',linestyle='',
                 markersize='14', color='black')
-    [ylabel.set_visible(True) for ylabel in axs[0].get_yticklabels()[2:-2:2]]
+    [ylabel.set_visible(True) for ylabel in axs[0].get_yticklabels()[2:-1:2]]
     axs[0].text(8.2,ylimits[0][1]-0.19,labels[0])
     axs[0].text(7.45,ylimits[0][1]-0.36,texts[0])
 
@@ -158,7 +158,7 @@ def fig4():
     axs[1].errorbar(fig4_nb[1],fig4_nf[1],fig4_yerr[1],
                 marker='o',linestyle='',
                 markersize='14', color='black')
-    [ylabel.set_visible(True) for ylabel in axs[1].get_yticklabels()[2:-2]]
+    [ylabel.set_visible(True) for ylabel in axs[1].get_yticklabels()[2:-1:2]]
     axs[1].text(7.7,ylimits[1][1]-0.25,labels[1])
     axs[1].text(7.0,ylimits[1][1]-0.55,texts[1])
 
