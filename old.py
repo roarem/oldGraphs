@@ -189,8 +189,8 @@ def fig4():
     axs[4].text(7.5,ylimits[4][1]-0.38,texts[4])
 
     #plt.show()
-    fig.savefig('fig4.eps')#, bbox_inches='tight')
-    fig.savefig('fig4.pdf')#, bbox_inches='tight')
+    fig.savefig('fig4.eps')
+    fig.savefig('fig4.pdf')
 
 fig1()
 fig4()
